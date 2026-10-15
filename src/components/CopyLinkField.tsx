@@ -32,9 +32,10 @@ export default function CopyLinkField({
       className={`flex flex-col items-start gap-inline-md overflow-clip rounded-card bg-surface-subtle p-stack-md ${className}`}
     >
       <p className="text-label-lg whitespace-nowrap text-text-strong">{title}</p>
-      <div className="flex w-full items-center gap-inline-md">
+      <div className="flex w-full items-stretch gap-inline-md">
         <InputField readOnly value={url} aria-label={title} className="min-w-px flex-1" />
-        <Button onClick={copy} className="shrink-0">
+        {/* h-auto!: 버튼 기본 높이(44px)를 무시하고 입력창과 같은 높이로 늘린다 */}
+        <Button onClick={copy} className="h-auto! shrink-0">
           {copied ? "복사됨" : "복사"}
         </Button>
       </div>
