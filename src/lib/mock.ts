@@ -19,10 +19,10 @@ export type Response = {
 // /i/demo — 응답이 3개 있는 초대장
 export const mockInvitation: Invitation = {
   id: "demo",
-  title: "허들링 클럽 2번째\n오프라인 밋업",
-  date: "2026년 11월 14일 (토) 09:00",
-  location: "세종 남극 기지",
-  body: "두 번째 오프라인 밋업에 초대해요.\n편한 복장으로 오셔서 함께 이야기 나눠요.",
+  title: "하준이의 여덟 번째\n생일잔치",
+  date: "2026년 11월 14일 (토) 14:00",
+  location: "행복 키즈카페 2층 파티룸",
+  body: "친구들아 안녕! 🎂\n하준이의 생일 파티에 놀러 와!\n\n맛있는 케이크도 먹고\n신나게 같이 놀자 🎈\n\n꼭 와서 같이 축하해 줘!",
 };
 
 // /i/empty — 응답이 0건인 초대장 (응답 현황의 빈 화면 확인용)

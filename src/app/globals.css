@@ -27,7 +27,8 @@
   --color-border-accent: #1f3dbc;
   --color-border-on-dark: #ffffff33;
 
-  --color-action-primary: #536dfe;
+  --color-action-primary: #ffb800;
+  --color-action-primary-hover: #e6a600;
   --color-action-secondary: #297eff;
   --color-action-hover-overlay: #1f3dbcb2;
 

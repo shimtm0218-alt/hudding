@@ -1,6 +1,7 @@
 type LabelProps = {
   label?: string;
   required?: boolean;
+  htmlFor?: string; // 입력창의 id. 주면 라벨을 눌렀을 때 그 입력창으로 이동한다
   className?: string;
 };
 
@@ -8,12 +9,23 @@ type LabelProps = {
 export default function Label({
   label = "Label",
   required = true,
+  htmlFor,
   className = "",
 }: LabelProps) {
-  return (
-    <div className={`flex items-center gap-inline-sm whitespace-nowrap ${className}`}>
-      <p className="text-label-lg text-text-strong">{label}</p>
-      {required && <p className="text-caption-md text-feedback-error">필수</p>}
-    </div>
+  const style = `flex items-center gap-inline-sm whitespace-nowrap ${className}`;
+  const content = (
+    <>
+      <span className="text-label-lg text-text-strong">{label}</span>
+      {required && <span className="text-caption-md text-feedback-error">필수</span>}
+    </>
   );
+
+  if (htmlFor) {
+    return (
+      <label htmlFor={htmlFor} className={style}>
+        {content}
+      </label>
+    );
+  }
+  return <div className={style}>{content}</div>;
 }

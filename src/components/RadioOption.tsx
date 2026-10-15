@@ -22,12 +22,15 @@ export default function RadioOption({
     <label className={`flex items-center ${disabled ? "cursor-not-allowed" : "cursor-pointer"} ${className}`}>
       <input
         type="radio"
-        className="sr-only"
+        className="peer sr-only"
         checked={checked}
         disabled={disabled}
         {...props}
       />
-      <Radio state={state} className="shrink-0" />
+      <Radio
+        state={state}
+        className="shrink-0 rounded-control peer-focus-visible:outline-2 peer-focus-visible:-outline-offset-2 peer-focus-visible:outline-text-strong"
+      />
       <Label label={label} required={showRequired} />
     </label>
   );

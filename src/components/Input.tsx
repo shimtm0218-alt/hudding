@@ -1,3 +1,6 @@
+"use client";
+
+import { useId } from "react";
 import type { InputHTMLAttributes } from "react";
 import InputField from "./InputField";
 import Label from "./Label";
@@ -13,13 +16,17 @@ export default function Input({
   label = "Label",
   showRequired = true,
   helper,
+  id,
   className = "",
   ...props
 }: InputProps) {
+  const generatedId = useId();
+  const fieldId = id ?? generatedId;
+
   return (
     <div className={`flex flex-col items-start gap-inline-compact ${className}`}>
-      <Label label={label} required={showRequired} />
-      <InputField {...props} />
+      <Label label={label} required={showRequired} htmlFor={fieldId} />
+      <InputField id={fieldId} {...props} />
       {helper && <p className="text-caption-md text-text-tertiary">{helper}</p>}
     </div>
   );

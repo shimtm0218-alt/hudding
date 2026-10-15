@@ -67,6 +67,7 @@ export default function CreatePage() {
             rows={2}
             placeholder={"예) 허들링 클럽 2번째\n오프라인 밋업"}
             helper="엔터로 줄을 나눌 수 있어요 · 최대 2줄"
+            maxLength={60}
             value={title}
             onChange={(e) => {
               if (e.target.value.split("\n").length <= 2) setTitle(e.target.value);
@@ -75,12 +76,14 @@ export default function CreatePage() {
           <Input
             label="일시"
             placeholder="예) 2026년 11월 14일 (토) 09:00"
+            maxLength={50}
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />
           <Input
             label="장소"
             placeholder="예) 세종 남극 기지"
+            maxLength={100}
             value={location}
             onChange={(e) => setLocation(e.target.value)}
           />
@@ -88,6 +91,7 @@ export default function CreatePage() {
             label="본문"
             rows={4}
             placeholder="게스트에게 전할 초대 글을 적어주세요"
+            maxLength={1000}
             value={body}
             onChange={(e) => setBody(e.target.value)}
           />

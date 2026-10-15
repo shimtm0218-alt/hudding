@@ -8,7 +8,7 @@ export default function InputField({
 }: InputHTMLAttributes<HTMLInputElement>) {
   return (
     <input
-      className={`w-full rounded-control border border-border-subtle bg-surface-default px-stack-md py-control-x text-body-lg leading-normal text-text-primary outline-none placeholder:text-text-disabled focus:border-action-primary ${className}`}
+      className={`w-full rounded-control border border-border-subtle bg-surface-default px-stack-md py-control-x text-body-lg leading-normal text-text-primary placeholder:text-text-disabled focus:border-action-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-strong ${className}`}
       {...props}
     />
   );

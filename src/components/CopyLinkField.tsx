@@ -38,7 +38,7 @@ export default function CopyLinkField({
           {copied ? "복사됨" : "복사"}
         </Button>
       </div>
-      <p className="text-caption-md whitespace-nowrap text-text-tertiary">{description}</p>
+      <p className="text-caption-md text-text-tertiary">{description}</p>
     </div>
   );
 }
