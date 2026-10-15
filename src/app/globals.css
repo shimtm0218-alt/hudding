@@ -17,6 +17,7 @@
   --color-text-secondary: #6b7280;
   --color-text-tertiary: #66707a;
   --color-text-disabled: #a0a2a3;
+  --color-text-inverse: #ffffff;
 
   --color-border-default: #e5e7eb;
   --color-border-subtle: #e7e7e8;
@@ -33,6 +34,9 @@
 
   --color-feedback-error: #d90000;
 
+  --color-cover-gradient-preserved-3: #050510;
+  --color-cover-gradient-preserved-4: #656f79;
+
   /* 간격: Figma 숫자를 px 그대로. 클래스 예) p-stack-md, gap-inline-md */
   --spacing-none: 0px;
   --spacing-inline-xs: 2px;
@@ -40,6 +44,7 @@
   --spacing-compact-detail: 5px;
   --spacing-inline-compact: 6px;
   --spacing-inline-md: 8px;
+  --spacing-control-y: 8px;
   --spacing-control-compact: 10px;
   --spacing-control-x: 12px;
   --spacing-stack-sm: 12px;
@@ -61,6 +66,7 @@
   --radius-button: 6px;
   --radius-control: 8px;
   --radius-media: 12px;
+  --radius-scaled-media-16-8: 16.8px;
   --radius-card: 20px;
   --radius-cover: 32px;
   --radius-pill: 999px;
