@@ -6,6 +6,9 @@
 @theme {
   --font-sans: "Pretendard Variable", Pretendard, -apple-system, sans-serif;
 
+  /* 화면 최대 너비. 클래스 예) max-w-mobile */
+  --container-mobile: 375px;
+
   /* 색상: 클래스 예) bg-action-primary, text-text-secondary, border-border-default */
   --color-surface-default: #ffffff;
   --color-surface-subtle: #f3f4f6;

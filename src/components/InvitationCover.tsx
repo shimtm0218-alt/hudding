@@ -11,7 +11,7 @@ type InvitationCoverProps = {
 
 // 초대장 상단 커버(대표 이미지 + 제목). /create 미리보기와 /i/[id]에서 같은 컴포넌트를 쓴다.
 export default function InvitationCover({
-  eyebrow = "Huddling Club 2nd Meetup",
+  eyebrow = "",
   title = "허들링 클럽 2번째\n오프라인 밋업",
   date = "2026년 11월 14일 (토) 09:00",
   location = "세종 남극 기지",
@@ -21,7 +21,13 @@ export default function InvitationCover({
     <div
       className={`flex flex-col items-center justify-center gap-page-horizontal overflow-clip bg-linear-to-b from-cover-gradient-preserved-3 to-cover-gradient-preserved-4 px-page-horizontal py-cover-inset ${className}`}
     >
-      <SectionHeader subtitle={eyebrow} title={title} showDescription={false} tone="inverse" />
+      <SectionHeader
+        subtitle={eyebrow}
+        title={title}
+        showSubtitle={eyebrow !== ""}
+        showDescription={false}
+        tone="inverse"
+      />
       <Image type="character" alt="" />
       <Detail label="일시" value={date} />
       <Detail label="장소" value={location} />

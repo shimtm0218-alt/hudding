@@ -147,7 +147,13 @@ export default function TestPage() {
       </Section>
 
       <Section name="InvitationCover">
-        <InvitationCover className="w-full" />
+        <InvitationCover
+          className="w-full"
+          eyebrow="Huddling Club 2nd Meetup"
+          title={"허들링 클럽 2번째\n오프라인 밋업"}
+          date="2026년 11월 14일 (토) 09:00"
+          location="세종 남극 기지"
+        />
       </Section>
 
       <Section name="RSVPCard (form / done)">

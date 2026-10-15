@@ -16,11 +16,11 @@ export default function ResponseRow({
 }: ResponseRowProps) {
   return (
     <div
-      className={`flex h-19.5 items-center gap-stack-sm rounded-card border border-border-subtle bg-surface-default p-stack-md ${className}`}
+      className={`flex min-h-19.5 items-center gap-stack-sm rounded-card border border-border-subtle bg-surface-default p-stack-md ${className}`}
     >
       <div className="flex min-w-px flex-1 flex-col items-start gap-inline-sm overflow-clip whitespace-nowrap">
         <p className="text-label-lg text-text-primary">{name}</p>
-        <p className="text-caption-md text-text-tertiary">{meta}</p>
+        {meta && <p className="text-caption-md text-text-tertiary">{meta}</p>}
       </div>
       <AttendanceBadge status={status} className="shrink-0" />
     </div>

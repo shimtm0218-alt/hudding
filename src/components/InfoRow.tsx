@@ -23,9 +23,9 @@ export default function InfoRow({
 
   return (
     <div className={`flex items-center gap-control-compact ${className}`}>
-      <p className="text-label-lg whitespace-nowrap text-text-secondary">{label}</p>
+      <p className="text-label-lg shrink-0 whitespace-nowrap text-text-secondary">{label}</p>
       <div className="h-3.5 w-px shrink-0 bg-border-default" />
-      <p className="text-label-lg whitespace-nowrap text-text-strong">{value}</p>
+      <p className="text-label-lg min-w-px text-text-strong">{value}</p>
     </div>
   );
 }

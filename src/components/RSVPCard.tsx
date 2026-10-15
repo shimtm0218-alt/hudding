@@ -16,15 +16,15 @@ export type RsvpValues = {
 };
 
 type RSVPCardProps = {
-  state?: "form" | "done";
+  state?: "form" | "done"; // 안 주면 스스로 바뀐다: 처음엔 form, 제출하면 done
   onSubmit?: (values: RsvpValues) => void;
-  response?: RsvpValues; // state="done"일 때 보여줄 내 응답
+  response?: RsvpValues; // state="done"을 직접 줄 때 보여줄 내 응답
   className?: string;
 };
 
 // 보기 화면(/i/[id])의 참석 신청 카드. 제출 전 form, 제출 후 같은 자리에서 done으로 바뀐다.
 export default function RSVPCard({
-  state = "form",
+  state,
   onSubmit,
   response = { name: "김허들", status: "yes", companions: 1 },
   className = "",
@@ -32,10 +32,14 @@ export default function RSVPCard({
   const [name, setName] = useState("");
   const [status, setStatus] = useState<"yes" | "no">("yes");
   const [companions, setCompanions] = useState(0);
+  const [submitted, setSubmitted] = useState<RsvpValues | null>(null);
+
+  const currentState = state ?? (submitted ? "done" : "form");
+  const shown = submitted ?? response;
 
   const card = `flex flex-col items-start gap-stack-lg overflow-clip rounded-card bg-surface-default px-page-horizontal py-stack-lg ${className}`;
 
-  if (state === "done") {
+  if (currentState === "done") {
     return (
       <div className={card}>
         <div className="flex w-full flex-col items-center gap-stack-sm py-section-lg">
@@ -46,9 +50,9 @@ export default function RSVPCard({
           </p>
         </div>
         <div className="flex w-full flex-col gap-inline-md rounded-card bg-surface-subtle p-stack-md">
-          <InfoRow type="spread" label="이름" value={response.name} />
-          <InfoRow type="spread" label="참석 여부" value={response.status === "yes" ? "참석" : "불참"} />
-          <InfoRow type="spread" label="동반 인원" value={`${response.companions}명`} />
+          <InfoRow type="spread" label="이름" value={shown.name} />
+          <InfoRow type="spread" label="참석 여부" value={shown.status === "yes" ? "참석" : "불참"} />
+          <InfoRow type="spread" label="동반 인원" value={`${shown.companions}명`} />
         </div>
       </div>
     );
@@ -57,7 +61,9 @@ export default function RSVPCard({
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     // 불참이면 동반 인원은 0으로 보낸다.
-    onSubmit?.({ name: name.trim(), status, companions: status === "yes" ? companions : 0 });
+    const values = { name: name.trim(), status, companions: status === "yes" ? companions : 0 };
+    setSubmitted(values);
+    onSubmit?.(values);
   }
 
   return (
